@@ -1,0 +1,728 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #0f0f0f 0%, #1f2937 25%, #374151 50%, #1f2937 75%, #0f0f0f 100%);
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  color: #d1d5db;
+}
+
+/* Metallic texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 1px,
+      rgba(156,163,175,0.05) 1px,
+      rgba(156,163,175,0.05) 2px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 1px,
+      rgba(0,0,0,0.05) 1px,
+      rgba(0,0,0,0.05) 2px
+    );
+  pointer-events: none;
+  z-index: 0;
+  animation: textureShift 30s linear infinite;
+}
+
+@keyframes textureShift {
+  0% { background-position: 0 0; }
+  100% { background-position: 100px 100px; }
+}
+
+/* Wood X decoration */
+body::after {
+  content: 'X';
+  position: fixed;
+  font-size: 250px;
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+  pointer-events: none;
+  z-index: 0;
+  top: -60px;
+  left: -60px;
+  background: linear-gradient(180deg, 
+    rgba(159,95,54,0.15) 0%, 
+    rgba(117,59,38,0.08) 40%,
+    rgba(81,42,31,0.05) 60%,
+    rgba(159,95,54,0.1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform: rotate(-15deg);
+  animation: floatMetal1 20s ease-in-out infinite;
+  text-shadow: 0 0 60px rgba(117,59,38,0.1);
+}
+
+/* Decorative wood elements */
+.decorative-x,
+.decorative-o {
+  position: fixed;
+  font-size: 180px;
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+  pointer-events: none;
+  z-index: 0;
+  background: linear-gradient(180deg, 
+    rgba(203,165,131,0.12) 0%, 
+    rgba(159,95,54,0.06) 50%,
+    rgba(203,165,131,0.1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.decorative-x:nth-of-type(1) {
+  content: 'X';
+  top: 25%;
+  right: 8%;
+  transform: rotate(25deg);
+  animation: floatMetal3 18s ease-in-out infinite;
+}
+
+.decorative-o:nth-of-type(1) {
+  content: 'O';
+  bottom: 20%;
+  left: 3%;
+  transform: rotate(-20deg);
+  animation: floatMetal4 22s ease-in-out infinite;
+}
+
+.decorative-x:nth-of-type(2) {
+  animation: floatMetal2 20s ease-in-out infinite;
+}
+
+.decorative-o:nth-of-type(2) {
+  animation: floatMetal1 25s ease-in-out infinite;
+}
+
+/* Enhanced float animations with metal/wood feel */
+@keyframes floatMetal1 {
+  0%, 100% { 
+    transform: rotate(-15deg) translateY(0px) scale(1);
+    filter: brightness(1);
+  }
+  25% {
+    filter: brightness(1.1);
+  }
+  50% { 
+    transform: rotate(-15deg) translateY(-35px) scale(1.02);
+    filter: brightness(1.2);
+  }
+  75% {
+    filter: brightness(1.05);
+  }
+}
+
+@keyframes floatMetal2 {
+  0%, 100% { 
+    transform: rotate(15deg) translateY(0px);
+    opacity: 0.8;
+  }
+  50% { 
+    transform: rotate(15deg) translateY(35px);
+    opacity: 1;
+  }
+}
+
+@keyframes floatMetal3 {
+  0%, 100% { 
+    transform: rotate(25deg) translateX(0px) translateY(0px);
+  }
+  33% {
+    transform: rotate(28deg) translateX(15px) translateY(-10px);
+  }
+  66% {
+    transform: rotate(22deg) translateX(-10px) translateY(5px);
+  }
+}
+
+@keyframes floatMetal4 {
+  0%, 100% { 
+    transform: rotate(-20deg) translateX(0px);
+  }
+  50% { 
+    transform: rotate(-20deg) translateX(-25px);
+  }
+}
+
+/* Metal shine sweep animation */
+@keyframes metalShineSweep {
+  0% { 
+    background-position: -200% center;
+  }
+  100% { 
+    background-position: 200% center;
+  }
+}
+
+/* Pulsing glow for metal elements */
+@keyframes metalPulse {
+  0%, 100% {
+    box-shadow: 
+      0 0 20px rgba(156,163,175,0.2),
+      inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+  50% {
+    box-shadow: 
+      0 0 40px rgba(209,213,219,0.3),
+      0 0 60px rgba(156,163,175,0.15),
+      inset 0 1px 0 rgba(255,255,255,0.2);
+  }
+}
+
+/* Ensure all content stays above decorations */
+#__next,
+main,
+.min-h-screen {
+  position: relative;
+  z-index: 1;
+}
+
+/* Wood range slider */
+input[type='range'] {
+  -webkit-appearance: none;
+  background: linear-gradient(180deg, #2b1510, #512a1f);
+  border-radius: 8px;
+  height: 8px;
+  border: 1px solid #753b26;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 26px;
+  height: 26px;
+  background: linear-gradient(180deg, #cba583 0%, #9f5f36 40%, #753b26 60%, #cba583 100%);
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid #dfc8b0;
+  box-shadow: 
+    0 2px 8px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.3),
+    inset 0 -1px 0 rgba(0,0,0,0.2);
+  transition: all 0.2s ease;
+}
+
+input[type='range']::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  background: linear-gradient(180deg, #dfc8b0 0%, #cba583 40%, #9f5f36 60%, #cba583 100%);
+  box-shadow: 
+    0 4px 12px rgba(0,0,0,0.5),
+    0 0 20px rgba(159,95,54,0.2),
+    inset 0 1px 0 rgba(255,255,255,0.4);
+}
+
+input[type='range']::-moz-range-thumb {
+  width: 26px;
+  height: 26px;
+  background: linear-gradient(180deg, #cba583 0%, #9f5f36 40%, #753b26 60%, #cba583 100%);
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid #dfc8b0;
+  box-shadow: 
+    0 2px 8px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.3);
+  transition: all 0.2s ease;
+}
+
+input[type='range']::-moz-range-thumb:hover {
+  transform: scale(1.15);
+  background: linear-gradient(180deg, #dfc8b0 0%, #cba583 40%, #9f5f36 60%, #cba583 100%);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Metal scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: linear-gradient(180deg, #1f2937, #374151);
+  border-radius: 5px;
+  border: 1px solid #4b5563;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #9ca3af 0%, #6b7280 50%, #9ca3af 100%);
+  border-radius: 5px;
+  border: 1px solid #d1d5db;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #d1d5db 0%, #9ca3af 50%, #d1d5db 100%);
+}
+
+/* Metal & Wood card styling */
+.metal-card {
+  background: linear-gradient(145deg, #1f2937 0%, #111827 50%, #030712 100%);
+  border: 2px solid #753b26; /* Wood border */
+  border-radius: 16px;
+  box-shadow: 
+    0 10px 40px rgba(0,0,0,0.5),
+    inset 0 1px 0 rgba(255,255,255,0.1),
+    inset 0 -1px 0 rgba(0,0,0,0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.metal-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(209,213,219,0.4), transparent);
+}
+
+.metal-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(209,213,219,0.05), transparent);
+  animation: metalShineSweep 4s ease-in-out infinite;
+}
+
+/* Metal button with Wood accent */
+.metal-btn {
+  background: linear-gradient(180deg, #4b5563 0%, #374151 40%, #1f2937 60%, #374151 100%);
+  border: 2px solid #8d4b2e; /* Wood border */
+  color: #f3f4f6;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 
+    0 4px 15px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.2),
+    inset 0 -1px 0 rgba(0,0,0,0.3);
+  position: relative;
+  overflow: hidden;
+  font-family: 'Courier New', monospace; /* Textual */
+}
+
+.metal-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transition: left 0.5s ease;
+}
+
+.metal-btn:hover::before {
+  left: 100%;
+}
+
+.metal-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(180deg, #6b7280 0%, #4b5563 40%, #374151 60%, #4b5563 100%);
+  border-color: #b67f56;
+  box-shadow: 
+    0 6px 25px rgba(0,0,0,0.5),
+    0 0 20px rgba(156,163,175,0.15),
+    inset 0 1px 0 rgba(255,255,255,0.3);
+}
+
+.metal-btn:active {
+  transform: translateY(1px);
+  box-shadow: 
+    0 2px 10px rgba(0,0,0,0.4),
+    inset 0 2px 5px rgba(0,0,0,0.3);
+}
+
+/* Metal text effect */
+.metal-text {
+  background: linear-gradient(180deg, 
+    #f9fafb 0%, 
+    #d1d5db 25%, 
+    #9ca3af 50%, 
+    #d1d5db 75%, 
+    #f9fafb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0px 1px 1px rgba(0,0,0,0.5);
+  animation: textShimmer 3s ease-in-out infinite;
+  font-family: 'Courier New', monospace;
+  letter-spacing: -0.5px;
+}
+
+@keyframes textShimmer {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.2);
+  }
+}
+
+/* Metal game cell */
+.metal-cell {
+  background: linear-gradient(145deg, #374151, #1f2937);
+  border: 2px solid #9f5f36; /* Wood */
+  border-radius: 12px;
+  box-shadow: 
+    0 4px 15px rgba(0,0,0,0.4),
+    inset 0 2px 4px rgba(255,255,255,0.1),
+    inset 0 -2px 4px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.metal-cell::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(209,213,219,0.08), transparent);
+  pointer-events: none;
+}
+
+.metal-cell:hover {
+  transform: scale(1.05);
+  border-color: #cba583;
+  box-shadow: 
+    0 6px 20px rgba(0,0,0,0.5),
+    0 0 15px rgba(156,163,175,0.2),
+    inset 0 2px 4px rgba(255,255,255,0.15);
+}
+
+/* Winning cell animation */
+.metal-cell-win {
+  animation: metalCellWin 0.8s ease-out forwards;
+}
+
+@keyframes metalCellWin {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  }
+  25% {
+    transform: scale(1.15) rotate(2deg);
+    box-shadow: 
+      0 0 30px rgba(209,213,219,0.5),
+      0 0 60px rgba(156,163,175,0.3);
+  }
+  50% {
+    transform: scale(1.2) rotate(-2deg);
+    box-shadow: 
+      0 0 50px rgba(209,213,219,0.6),
+      0 0 80px rgba(156,163,175,0.4);
+    border-color: #d1d5db;
+  }
+  75% {
+    transform: scale(1.1) rotate(1deg);
+  }
+  100% {
+    transform: scale(1.05);
+    box-shadow: 
+      0 0 25px rgba(209,213,219,0.4),
+      0 0 50px rgba(156,163,175,0.2);
+    border-color: #e5e7eb;
+  }
+}
+
+/* X and O markers with metallic style */
+.metal-x {
+  color: transparent;
+  background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 40%, #d1d5db 60%, #e5e7eb 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+  animation: markerPulse 2s ease-in-out infinite;
+}
+
+.metal-o {
+  color: transparent;
+  background: linear-gradient(180deg, #cba583 0%, #b67f56 40%, #9f5f36 60%, #b67f56 100%); /* Wooden O */
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+  animation: markerPulse 2s ease-in-out infinite 0.5s;
+}
+
+/* Placement animation */
+.metal-place {
+  animation: metalPlace 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes metalPlace {
+  0% {
+    transform: scale(0) rotate(-180deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2) rotate(10deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/* Stats panel metal style */
+.metal-stats {
+  background: linear-gradient(180deg, #1f2937 0%, #111827 100%);
+  border: 1px solid #753b26;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 
+    inset 0 2px 5px rgba(0,0,0,0.3),
+    0 4px 10px rgba(0,0,0,0.2);
+}
+
+.metal-stats-value {
+  background: linear-gradient(180deg, #f9fafb 0%, #d1d5db 50%, #9ca3af 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  font-size: 1.5rem;
+  font-family: 'Courier New', monospace;
+}
+
+/* Badge/tag wood style */
+.metal-badge {
+  background: linear-gradient(180deg, #9f5f36 0%, #8d4b2e 50%, #753b26 100%);
+  border: 1px solid #cba583;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  color: #f3f4f6;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+  box-shadow: 
+    0 2px 6px rgba(0,0,0,0.3),
+    inset 0 1px 0 rgba(255,255,255,0.1);
+}
+
+/* Network indicator with glow */
+.metal-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #9ca3af, #6b7280);
+  box-shadow: 0 0 8px #9ca3af, 0 0 16px rgba(156,163,175,0.4);
+  animation: indicatorPulse 2s ease-in-out infinite;
+}
+
+/* Loading spinner metal */
+.metal-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #374151;
+  border-top: 3px solid #d1d5db;
+  border-radius: 50%;
+  animation: metalSpin 1s linear infinite;
+  box-shadow: 
+    0 0 10px rgba(0,0,0,0.3),
+    inset 0 0 10px rgba(0,0,0,0.2);
+}
+
+/* Input field metal */
+.metal-input {
+  background: linear-gradient(180deg, #1f2937, #111827);
+  border: 1px solid #753b26;
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: #f3f4f6;
+  font-size: 1rem;
+  font-family: 'Courier New', monospace;
+  box-shadow: 
+    inset 0 2px 5px rgba(0,0,0,0.3),
+    0 1px 0 rgba(255,255,255,0.05);
+  transition: all 0.3s ease;
+}
+
+.metal-input:focus {
+  outline: none;
+  border-color: #cba583;
+  box-shadow: 
+    inset 0 2px 5px rgba(0,0,0,0.3),
+    0 0 15px rgba(159,95,54,0.2);
+}
+
+.metal-input::placeholder {
+  color: #9ca3af;
+}
+
+/* Leaderboard row metal hover */
+.metal-row {
+  background: linear-gradient(180deg, #374151, #1f2937);
+  border-bottom: 1px solid #4b5563;
+  transition: all 0.3s ease;
+}
+
+.metal-row:hover {
+  background: linear-gradient(180deg, #1f2937, #374151);
+  box-shadow: 0 0 15px rgba(156,163,175,0.1);
+}
+
+/* Victory/defeat overlay */
+.metal-overlay {
+  background: rgba(17,24,39,0.95);
+  backdrop-filter: blur(10px);
+}
+
+.metal-victory {
+  background: linear-gradient(180deg, 
+    #cba583 0%, 
+    #9f5f36 25%, 
+    #753b26 50%, 
+    #9f5f36 75%, 
+    #cba583 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: victoryGlow 1.5s ease-in-out infinite;
+}
+
+.metal-defeat {
+  background: linear-gradient(180deg, 
+    #d1d5db 0%, 
+    #9ca3af 25%, 
+    #6b7280 50%, 
+    #9ca3af 75%, 
+    #d1d5db 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Particle effect for wins */
+.metal-particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: linear-gradient(180deg, #cba583, #9f5f36);
+  border-radius: 50%;
+  animation: particleFly 1s ease-out forwards;
+}
+
+/* Ripple effect */
+.metal-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(209,213,219,0.3), transparent);
+  animation: rippleExpand 0.6s ease-out forwards;
+}
+
+/* Farcaster MiniApp optimizations */
+@media (max-width: 480px) {
+  body {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  
+  .min-h-screen {
+    min-height: 100vh;
+    padding: 0.25rem !important;
+  }
+  
+  .w-full.max-w-4xl,
+  .w-full.max-w-2xl,
+  .max-w-4xl,
+  .max-w-2xl {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  .bg-gradient-to-br,
+  .rounded-2xl,
+  .rounded-xl {
+    padding: 0.75rem !important;
+    margin: 0.25rem !important;
+  }
+  
+  .p-8, .p-6 {
+    padding: 0.75rem !important;
+  }
+  
+  .py-6 {
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+  }
+  
+  .px-6 {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+  
+  h1 {
+    font-size: 1.25rem !important;
+  }
+  
+  h2 {
+    font-size: 1.1rem !important;
+  }
+  
+  .text-2xl {
+    font-size: 1.1rem !important;
+  }
+  
+  .text-xl {
+    font-size: 1rem !important;
+  }
+  
+  button {
+    padding: 0.5rem 0.75rem !important;
+    font-size: 0.875rem !important;
+  }
+  
+  .space-y-4 > * + * {
+    margin-top: 0.5rem !important;
+  }
+  
+  .gap-4 {
+    gap: 0.5rem !important;
+  }
+  
+  .decorative-x,
+  .decorative-o {
+    display: none !important;
+  }
+}

@@ -1,0 +1,56 @@
+/* Leaf Green Alert Styles */
+
+/* Base Alert */
+.alert-gold {
+  @apply p-4 rounded-lg border;
+}
+
+/* Success Alert */
+.alert-gold-success {
+  @apply bg-gold-100 border-gold-400 text-gold-800;
+}
+
+/* Info Alert */
+.alert-gold-info {
+  @apply bg-gold-50 border-gold-300 text-gold-700;
+}
+
+/* Warning Alert */
+.alert-gold-warning {
+  @apply bg-yellow-50 border-yellow-400 text-yellow-800;
+}
+
+/* Error Alert */
+.alert-gold-error {
+  @apply bg-red-50 border-red-400 text-red-800;
+}
+
+/* Toast Notification */
+.toast-gold {
+  @apply fixed bottom-4 right-4 p-4 rounded-xl
+         bg-gold-600 text-white shadow-xl
+         transform transition-all duration-300
+         animate-bounce-in-green;
+}
+
+/* Game Result Alert */
+.alert-gold-winner {
+  @apply p-6 rounded-2xl
+         bg-gradient-to-r from-gold-400 to-gold-500
+         text-white text-center font-bold
+         shadow-2xl animate-glow-pulse;
+}
+
+/* Game Result - Loss */
+.alert-gold-loss {
+  @apply p-6 rounded-2xl
+         bg-gold-200 text-gold-700 text-center font-semibold
+         shadow-lg;
+}
+
+/* Game Result - Draw */
+.alert-gold-draw {
+  @apply p-6 rounded-2xl
+         bg-gold-300 text-gold-800 text-center font-semibold
+         shadow-lg;
+}

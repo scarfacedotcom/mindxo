@@ -1,0 +1,46 @@
+/* Leaf Green Theme Variables */
+:root {
+  /* Primary Leaf Green Palette */
+  --gold-50: #f0fdf4;
+  --gold-100: #dcfce7;
+  --gold-200: #bbf7d0;
+  --gold-300: #86efac;
+  --gold-400: #4ade80;
+  --gold-500: #22c55e;
+  --gold-600: #16a34a;
+  --gold-700: #15803d;
+  --gold-800: #166534;
+  --gold-900: #14532d;
+  
+  /* Forest Accent Colors */
+  --forest-light: #bbf7d0;
+  --forest-medium: #22c55e;
+  --forest-dark: #14532d;
+  
+  /* Theme Semantics */
+  --theme-primary: var(--gold-500);
+  --theme-primary-hover: var(--gold-600);
+  --theme-secondary: var(--gold-400);
+  --theme-background: var(--gold-100);
+  --theme-surface: var(--gold-50);
+  --theme-text: var(--gold-800);
+  --theme-text-muted: var(--gold-600);
+  --theme-border: var(--gold-400);
+  --theme-accent: var(--forest-medium);
+  
+  /* Shadows with green tint */
+  --shadow-sm: 0 1px 2px rgba(20, 83, 45, 0.1);
+  --shadow-md: 0 4px 6px rgba(20, 83, 45, 0.15);
+  --shadow-lg: 0 10px 15px rgba(20, 83, 45, 0.2);
+  --shadow-xl: 0 20px 25px rgba(20, 83, 45, 0.25);
+}
+
+/* Dark mode overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --theme-background: var(--gold-900);
+    --theme-surface: var(--gold-800);
+    --theme-text: var(--gold-100);
+    --theme-text-muted: var(--gold-300);
+  }
+}

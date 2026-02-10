@@ -1,0 +1,59 @@
+/* Leaf Green Typography Styles */
+
+/* Headings */
+.text-gold-h1 {
+  @apply text-4xl font-bold text-gold-800;
+}
+
+.text-gold-h2 {
+  @apply text-3xl font-bold text-gold-800;
+}
+
+.text-gold-h3 {
+  @apply text-2xl font-semibold text-gold-700;
+}
+
+.text-gold-h4 {
+  @apply text-xl font-semibold text-gold-700;
+}
+
+/* Body Text */
+.text-gold-body {
+  @apply text-base text-gold-700;
+}
+
+.text-gold-body-sm {
+  @apply text-sm text-gold-600;
+}
+
+/* Muted Text */
+.text-gold-muted {
+  @apply text-gold-500;
+}
+
+/* Emphasized Text */
+.text-gold-emphasis {
+  @apply font-semibold text-gold-800;
+}
+
+/* Link Text */
+.text-gold-link {
+  @apply text-gold-600 hover:text-gold-700
+         underline cursor-pointer transition-colors;
+}
+
+/* Label Text */
+.text-gold-label {
+  @apply text-sm font-medium text-gold-600 uppercase tracking-wide;
+}
+
+/* Caption Text */
+.text-gold-caption {
+  @apply text-xs text-gold-500;
+}
+
+/* Gradient Text */
+.text-gold-gradient {
+  @apply bg-gradient-to-r from-gold-600 to-gold-400
+         bg-clip-text text-transparent;
+}

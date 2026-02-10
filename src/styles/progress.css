@@ -1,0 +1,65 @@
+/* Leaf Green Progress Styles */
+
+/* Progress Bar Container */
+.progress-gold {
+  @apply w-full h-4 bg-gold-200 rounded-full overflow-hidden;
+}
+
+/* Progress Bar Fill */
+.progress-gold-fill {
+  @apply h-full bg-gradient-to-r from-gold-400 to-gold-500
+         transition-all duration-500 ease-out rounded-full;
+}
+
+/* Progress Bar Animated */
+.progress-gold-animated .progress-gold-fill {
+  @apply animate-pulse;
+}
+
+/* Progress Bar Striped */
+.progress-gold-striped .progress-gold-fill {
+  background-image: linear-gradient(
+    45deg,
+    rgba(255,255,255,.15) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255,255,255,.15) 50%,
+    rgba(255,255,255,.15) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 1rem 1rem;
+}
+
+/* Progress Circle */
+.progress-gold-circle {
+  @apply w-20 h-20 relative;
+}
+
+.progress-gold-circle svg {
+  @apply w-full h-full transform -rotate-90;
+}
+
+.progress-gold-circle-track {
+  @apply stroke-gold-200;
+  fill: none;
+  stroke-width: 8;
+}
+
+.progress-gold-circle-fill {
+  @apply stroke-gold-500;
+  fill: none;
+  stroke-width: 8;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.5s ease-out;
+}
+
+/* Small Progress */
+.progress-gold-sm {
+  @apply h-2;
+}
+
+/* Large Progress */
+.progress-gold-lg {
+  @apply h-6;
+}
