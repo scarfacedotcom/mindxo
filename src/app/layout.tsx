@@ -23,6 +23,7 @@ export const metadata: Metadata = {
     'fc:frame:button:1': '🎮 Play Now',
     'fc:frame:button:1:action': 'link',
     'fc:frame:button:1:target': 'https://mindxo.vercel.app',
+    'base:app_id': '6981ccc21672d70694e29426',
   },
 };
 
