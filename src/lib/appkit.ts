@@ -5,7 +5,11 @@ import { WagmiAdapter } from '@reown/appkit-adapter-wagmi';
 import { baseSepolia } from 'viem/chains';
 import { cookieStorage, createStorage } from 'wagmi';
 
-const projectId = process.env.NEXT_PUBLIC_REOWN_PROJECT_ID || '7f100a30681d28871c0aaa5d1f6d1121';
+const projectId = process.env.NEXT_PUBLIC_REOWN_PROJECT_ID;
+
+if (!projectId) {
+  throw new Error('NEXT_PUBLIC_REOWN_PROJECT_ID is not defined');
+}
 
 const metadata = {
   name: 'MindXO',

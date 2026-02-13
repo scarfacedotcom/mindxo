@@ -118,11 +118,11 @@ export function usePlayerStats(address?: `0x${string}`) {
 export function useUSDCBalance() {
   const { address } = useAccount();
   const { data, isLoading, refetch } = useReadContract({
-    address: USDC_ADDRESS,
+    address: USDC_ADDRESS as `0x${string}`,
     abi: USDC_ABI,
     functionName: 'balanceOf',
     args: address ? [address] : undefined,
-  });
+  }) as { data: bigint | undefined; isLoading: boolean; refetch: () => void };
 
   return {
     balance: data || 0n,
@@ -134,11 +134,11 @@ export function useUSDCBalance() {
 export function useUSDCAllowance() {
   const { address } = useAccount();
   const { data, isLoading, refetch } = useReadContract({
-    address: USDC_ADDRESS,
+    address: USDC_ADDRESS as `0x${string}`,
     abi: USDC_ABI,
     functionName: 'allowance',
     args: address ? [address, CONTRACT_ADDRESS] : undefined,
-  });
+  }) as { data: bigint | undefined; isLoading: boolean; refetch: () => void };
 
   return {
     allowance: data || 0n,
