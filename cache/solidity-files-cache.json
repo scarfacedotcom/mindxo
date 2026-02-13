@@ -37,6 +37,43 @@
         "IERC20",
         "TicTacToeEscrow"
       ]
+    },
+    "/home/cyberking/Developments/Blockchain/Base/Game/mindxo/contracts/TicTacToeEscrow.sol": {
+      "lastModificationDate": 1770716444973,
+      "contentHash": "40af12cd9393629ada6c1b4e90e0fde2",
+      "sourceName": "contracts/TicTacToeEscrow.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "IERC20",
+        "TicTacToeEscrow"
+      ]
     }
   }
 }
