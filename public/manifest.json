@@ -1,0 +1,16 @@
+{
+  "name": "MindXO",
+  "short_name": "MindXO",
+  "description": "Play MindXO with AI or compete for USDC prizes on Base blockchain",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#22c55e",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

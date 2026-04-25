@@ -2,6 +2,7 @@
 
 import { createAppKit } from '@reown/appkit/react';
 import { WagmiAdapter } from '@reown/appkit-adapter-wagmi';
+import { baseAccount } from 'wagmi/connectors';
 import { baseSepolia } from 'viem/chains';
 import { cookieStorage, createStorage } from 'wagmi';
 
@@ -15,13 +16,19 @@ const metadata = {
   name: 'MindXO',
   description: 'Play MindXO on Base',
   url: 'https://mindxo.vercel.app',
-  icons: ['https://avatars.githubusercontent.com/u/37784886']
+  icons: ['https://mindxo.vercel.app/logo.png']
 };
 
 export const wagmiAdapter = new WagmiAdapter({
   ssr: true,
   projectId,
-  networks: [baseSepolia]
+  networks: [baseSepolia],
+  connectors: [
+    baseAccount({
+      appName: 'MindXO',
+      appLogoUrl: 'https://mindxo.vercel.app/logo.png',
+    }),
+  ]
 });
 
 createAppKit({

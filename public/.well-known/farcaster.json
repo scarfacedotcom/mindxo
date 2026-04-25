@@ -1,0 +1,17 @@
+{
+  "accountAssociation": {
+    "header": "eyJhbGciOiJFUzI1NksiLCJ0eXAiOiJKV1QifQ",
+    "payload": "eyJkb21haW4iOiJtaW5keG8udmVyY2VsLmFwcCJ9",
+    "signature": "placeholder"
+  },
+  "frame": {
+    "version": "1",
+    "name": "MindXO",
+    "iconUrl": "https://mindxo.vercel.app/favicon.svg",
+    "homeUrl": "https://mindxo.vercel.app",
+    "imageUrl": "https://mindxo.vercel.app/frame-image.svg",
+    "buttonTitle": "Play Now",
+    "splashImageUrl": "https://mindxo.vercel.app/logo.png",
+    "splashBackgroundColor": "#ffffff"
+  }
+}

@@ -37,6 +37,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/logo.png" type="image/png" />
         <link rel="manifest" href="/.well-known/farcaster.json" />
+        <meta name="base:app_id" content="6981ccc21672d70694e29426" />
       </head>
       <body>
         {/* Decorative floating X and O elements */}
