@@ -22,7 +22,7 @@ const config: HardhatUserConfig = {
         enabled: true
     },
     etherscan: {
-        apiKey: process.env.ETHERSCAN_API_KEY || "",
+        apiKey: process.env.BASESCAN_API_KEY || "",
         customChains: [
             {
                 network: "base",
